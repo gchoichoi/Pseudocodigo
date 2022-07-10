@@ -1,0 +1,109 @@
+Algoritmo "Oncov� Travels"
+// Disciplina   : [Introdução ao Mundo da Computação e Lógica de Programação]
+// Professor   : Denis Cople
+// Descrição   : Cadastro e consulta de clientes e destinos
+// Autor(a)    : Graziela Karina Rodrigues dos Santos
+
+Var
+
+ cliente, destino: vetor [1..5] de caractere
+ busca: caractere
+ opcao, x: inteiro
+ achou: logico
+ 
+
+Inicio
+
+procedimento cadastrarCliente
+inicio
+      escreval("Cadastre 5 clientes ")
+      para x de 1 ate 5 passo 1 faca
+   	      limpatela
+		escreval("Cadastre o cliente nr ", x)
+		leia(cliente[x])
+		escreval("")
+      fimpara
+fimprocedimento
+
+procedimento cadastrarDestino
+inicio
+      escreval("Cadastre 5 destinos ")
+      para x de 1 ate 5 passo 1 faca
+            limpatela
+		escreval("Cadastre o destino nr ", x)
+		leia(destino[x])
+		escreval("")
+      fimpara
+fimprocedimento
+
+procedimento pesquisarCLiente
+inicio
+      limpatela
+      achou <- falso
+      escreval("Qual cliente deseja pesquisar? ")
+      leia(busca)
+      para x de 1 ate 5 passo 1 faca
+           se busca = cliente[x] entao
+                      achou <- verdadeiro
+           fimse
+      fimpara
+      
+      se achou = verdadeiro entao
+           escreval("O cliente ", busca, " foi encontrado")
+           escreval("")
+      senao
+           escreval("O cliente ", busca, " não se encontra em nossos cadastros")
+           escreval("")
+      fimse
+fimprocedimento
+
+procedimento pesquisarDestino
+inicio
+      limpatela
+      achou <- falso
+      escreval("Qual destino deseja pesquisar? ")
+      leia(busca)
+      para x de 1 ate 5 passo 1 faca
+           se busca = destino[x] entao
+               achou <- verdadeiro
+           fimse
+      fimpara
+
+      se achou = verdadeiro entao
+           escreval("O destino ", busca, " foi encontrado")
+           escreval("")
+      senao
+           escreval("Infelizmente não viajamos para ", busca)
+           escreval("")
+      fimse
+fimprocedimento
+
+
+
+repita
+      escreval("O que você deseja fazer?")
+		escreval("1 - Cadastrar Cliente")
+		escreval("2 - Cadastrar Destino")
+		escreval("3 - Pesquisar Cliente")
+		escreval("4 - Pesquisar Destino")
+		escreval("0 - Sair")
+      leia(opcao)
+      escolha opcao
+              caso 1
+                   cadastrarCliente
+              caso 2
+                   cadastrarDestino
+              caso 3
+                   pesquisarCliente
+              caso 4
+                   pesquisarDestino
+              caso 0
+                   escreval("Encerrando programa")
+              outrocaso
+                   escreval("Digite uma opção valida")
+      fimescolha
+ate opcao = 0
+
+
+
+Fimalgoritmo
